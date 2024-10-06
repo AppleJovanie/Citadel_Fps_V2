@@ -1,8 +1,7 @@
-
 using UnityEngine;
 
-public class WeaponSwitching : MonoBehaviour {
-
+public class WeaponSwitching : MonoBehaviour
+{
     public int selectedWeapon = 0;
 
     // Start is called before the first frame update
@@ -14,31 +13,30 @@ public class WeaponSwitching : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        int previousSelectWeapon = selectedWeapon;
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        int previousSelectedWeapon = selectedWeapon;
+
+        // Check if the "Q" key is pressed to switch the weapon
+        if (Input.GetKeyDown(KeyCode.Q))
         {
+            // Cycle through the weapons
             if (selectedWeapon >= transform.childCount - 1)
                 selectedWeapon = 0;
             else
                 selectedWeapon++;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
-                selectedWeapon = transform.childCount -1;
-            else
-                selectedWeapon--;
-        }
-        if(previousSelectWeapon != selectedWeapon)
+
+        // If the selected weapon has changed, update the active weapon
+        if (previousSelectedWeapon != selectedWeapon)
         {
             SelectWeapon();
         }
     }
 
+    // Method to select the weapon based on the current selectedWeapon index
     void SelectWeapon()
     {
         int i = 0;
-        foreach(Transform weapon in transform)
+        foreach (Transform weapon in transform)
         {
             if (i == selectedWeapon)
                 weapon.gameObject.SetActive(true);

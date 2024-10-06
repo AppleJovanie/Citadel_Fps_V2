@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8358912851475655199}
   - component: {fileID: 3324296747733069515}
   - component: {fileID: 790518493966502067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: assault4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiveWeapon: 0
+  weaponDamage: 40
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 2
@@ -131,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2684179075697774382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +166,7 @@ GameObject:
   - component: {fileID: 2313693377348432140}
   - component: {fileID: 415330685592605146}
   - component: {fileID: 2624222500327135077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MuzzleFlashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

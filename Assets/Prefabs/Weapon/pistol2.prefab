@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4743079294444670965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 4741164313957793925}
   - component: {fileID: 2383315751505335882}
   - component: {fileID: 7654644325466199327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pistol2
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiveWeapon: 0
+  weaponDamage: 20
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 0.3
@@ -187,7 +188,7 @@ GameObject:
   - component: {fileID: 8277022870070251771}
   - component: {fileID: 6598423855591300971}
   - component: {fileID: 8689723870925511602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MuzzleFlashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
