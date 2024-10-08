@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
     private void PlayerDead()
     {
         SoundManager.Instance.playerChannel.PlayOneShot(SoundManager.Instance.playerDeath);
+        DisablePlayerControls();  // Disable controls when player dies
         GetComponent<MouseMovement>().enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
          
@@ -58,6 +59,15 @@ public class Player : MonoBehaviour
         GetComponent<ScreenBlackOut>().StartFade();
 
         StartCoroutine(ShowGameOverUI());
+    }
+     private void DisablePlayerControls()
+    {
+        // Disable all player movement and input components
+        GetComponent<MouseMovement>().enabled = false;
+        GetComponent<PlayerMovement>().enabled = false;
+
+        // If you have other scripts that manage input, disable them here as well
+        // For example, if you have a script for shooting or interacting, disable those components too
     }
 
     private IEnumerator ShowGameOverUI()

@@ -70,8 +70,13 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Prevent shooting and other inputs when the game is paused
+        if (PauseMenu.gameIsPaused)
+        {
+            return;  // Exit the Update function if the game is paused
+        }
 
-            if (bulletsLeft == 0 && isShooting)
+        if (bulletsLeft == 0 && isShooting)
             {
                 SoundManager.Instance.emptyMagazineSoundPistol.Play();
             }
@@ -101,12 +106,11 @@ public class Weapon : MonoBehaviour
                 burstBulletsLeft = bulletPerBurst;
                 FireWeapon();
             }
+        if (AmmoManager.Instance.ammoDisplay != null)
+        {
+            AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft} / {magazineSize}"; // Show current bullets and magazine size
+        }
 
-            if (AmmoManager.Instance.ammoDisplay != null)
-            {
-                AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft / bulletPerBurst}/ {magazineSize / bulletPerBurst}";
-            } 
-        
 
 
         // Pick up the weapon when "E" is pressed and a weapon is detected
@@ -125,11 +129,24 @@ public class Weapon : MonoBehaviour
 
     private void FireWeapon()
     {
-        bulletsLeft--;
+        // Only shoot if there are bullets left
+        if (bulletsLeft <= 0) return;
 
+        bulletsLeft--; // Reduce the bullets count for every shot
+
+        // Play appropriate muzzle effect and animations
         muzzleEffect.GetComponent<ParticleSystem>().Play();
         animator.SetTrigger("RECOIL");
-        SoundManager.Instance.shootingSoundPistol.Play();
+
+        // Play sound effects based on weapon type
+        if (CompareTag("Shotgun"))
+        {
+            SoundManager.Instance.shotGunSound.Play();
+        }
+        else if (CompareTag("Pistol"))
+        {
+            SoundManager.Instance.shootingSoundPistol.Play();
+        }
 
         readyToShoot = false;
 
@@ -160,6 +177,8 @@ public class Weapon : MonoBehaviour
             Invoke("FireWeapon", shootingDelay);
         }
     }
+
+
 
     private void Reload()
     {

@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource shootingSoundPistol;
     public AudioSource reloadingSoundPistol;
     public AudioSource emptyMagazineSoundPistol;
+    public AudioSource shotGunSound;
 
     public AudioClip zombieWalking;
     public AudioClip zombieChase;
@@ -35,5 +36,21 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    public void PauseAllAudio()
+    {
+       // backgroundMusic.Pause();
+        zombieChannel.Pause();
+        zombieChannel2.Pause();
+        playerChannel.Pause();
+    }
+
+    public void ResumeAllAudio()
+    {
+        //backgroundMusic.UnPause();
+        zombieChannel.UnPause();
+        zombieChannel2.UnPause();
+        playerChannel.UnPause();
     }
 }

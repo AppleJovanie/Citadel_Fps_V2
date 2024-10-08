@@ -10,6 +10,8 @@ TagManager:
   - Zombie
   - Waypoints
   - ZombieHand
+  - Shotgun
+  - Pistol
   layers:
   - Default
   - TransparentFX
