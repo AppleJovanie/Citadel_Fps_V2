@@ -12,6 +12,7 @@ TagManager:
   - ZombieHand
   - Shotgun
   - Pistol
+  - Smg
   layers:
   - Default
   - TransparentFX
